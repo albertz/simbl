@@ -400,7 +400,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_VERSION = 0.9.8;
-				SDKROOT = macosx10.5;
 			};
 			name = Development;
 		};
@@ -415,7 +414,6 @@
 				GCC_VERSION = 4.2;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_VERSION = 0.9.8;
-				SDKROOT = macosx10.5;
 			};
 			name = Deployment;
 		};
