@@ -37,8 +37,6 @@
 				<key>Context</key>
 				<string>Process</string>
 			</dict>
-			<key>SIMeleop</key>
-			<string>InjectEventHandler</string>
 		</dict>
 	</dict>
 </dict>
