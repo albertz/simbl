@@ -397,7 +397,6 @@
 				GCC_PREFIX_HEADER = src/SIMBL_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=0";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_VERSION = 0.9.8;
 			};
 			name = Development;
