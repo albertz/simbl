@@ -68,7 +68,7 @@ fail:
 
 - (void) loadInLaunchd
 {
-	NSTask* task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-F", @"-S", @"Aqua", @"/Library/ScriptingAdditions/SIMBL.osax/Contents/Resources/SIMBL Agent.app/Contents/Resources/net.culater.SIMBL.Agent.plist", nil]];
+	NSTask* task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-F", @"-S", @"Aqua", @"/System/Library/ScriptingAdditions/SIMBL.osax/Contents/Resources/SIMBL Agent.app/Contents/Resources/net.culater.SIMBL.Agent.plist", nil]];
 	[task waitUntilExit];
 	if ([task terminationStatus] != 0)
 		SIMBLLogNotice(@"launchctl returned %d", [task terminationStatus]);
@@ -89,6 +89,7 @@ fail:
 		
 	// check to see if there are plugins to load
 	if ([SIMBL shouldInstallPluginsIntoApplication:[NSBundle bundleWithPath:[appInfo objectForKey:@"NSApplicationPath"]]] == NO) {
+		SIMBLLogDebug(@"no plugins for %@", appName);
 		return;
 	}
 	
