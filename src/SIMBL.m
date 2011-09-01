@@ -57,7 +57,7 @@ OSErr InjectEventHandler(const AppleEvent *ev, AppleEvent *reply, long refcon)
 + (NSArray*) pluginPathList
 {
 	NSMutableArray* pluginPathList = [NSMutableArray array];
-	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,  NSUserDomainMask | NSLocalDomainMask | NSNetworkDomainMask, YES);
+	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSAllDomainsMask, YES);
 	for (NSString* libraryPath in paths) {
 		NSString* simblPath = [libraryPath stringByAppendingPathComponent:SIMBLPluginPath];
 		NSArray* simblBundles = [[[NSFileManager defaultManager] directoryContentsAtPath:simblPath] pathsMatchingExtensions:[NSArray arrayWithObject:@"bundle"]];
