@@ -13,3 +13,7 @@ This is a fork of SIMBL with a few additions / changes:
 
 The last two changes are needed to make it working again with recent Chrome versions. See [here](http://stackoverflow.com/questions/7269704/google-chrome-openscripting-framework-cant-find-entry-point-injecteventhandle/) for details.
 
+Blacklist an application:
+
+    defaults write net.culater.SIMBL_Agent SIMBLApplicationIdentifierBlacklist -array com.apple.Safari
+
