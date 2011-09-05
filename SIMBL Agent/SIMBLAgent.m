@@ -107,8 +107,6 @@ fail:
 	}
 
 	SIMBLLogDebug(@"send inject event");
-	
-	AEEventID eventID = 'load';
 
 	// Find the process to target
 	pid_t pid = [[appInfo objectForKey:@"NSApplicationProcessIdentifier"] intValue];
@@ -139,7 +137,7 @@ fail:
 	
 	// Inject!
 	[app setSendMode:kAENoReply | kAENeverInteract | kAEDontRecord];
-	id injectReply = [app sendEvent:'SIMe' id:eventID parameters:0];
+	id injectReply = [app sendEvent:'SIMe' id:'load' parameters:0];
 	if (injectReply != nil) {
 		SIMBLLogNotice(@"unexpected injectReply: %@", injectReply);
 	}
