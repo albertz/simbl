@@ -111,20 +111,21 @@ fail:
 	// Find the process to target
 	pid_t pid = [[appInfo objectForKey:@"NSApplicationProcessIdentifier"] intValue];
 	SBApplication* app = [SBApplication applicationWithProcessIdentifier:pid];
-	[app setDelegate:self];
 	if (!app) {
 		SIMBLLogNotice(@"Can't find app with pid %d", pid);
 		return;
 	}
-	
+
 	// Force AppleScript to initialize in the app, by getting the dictionary
 	// When initializing, you need to wait for the event reply, otherwise the
 	// event might get dropped on the floor. This is only seems to happen in 10.5
 	// but it shouldn't harm anything.
-	// XXX: This fails with the error:
-	//   eventDidFail:'tvea' error:Error Domain=NSOSStatusErrorDomain Code=-1708 "The operation couldn’t be completed. (OSStatus error -1708.)" (the AppleEvent was not handled by any handler )
-	//[app setSendMode:kAEWaitReply | kAENeverInteract | kAEDontRecord];
-	//id initReply = [app sendEvent:kASAppleScriptSuite id:kGetAEUT parameters:0];
+	[app setSendMode:kAEWaitReply | kAENeverInteract | kAEDontRecord];
+	id initReply = [app sendEvent:kASAppleScriptSuite id:kGetAEUT parameters:0];
+
+	// Set the delegate at this point. Not earlier because the above might
+	// throw the error eventDidFail:'tvea' which (probably) is safe to ignore.
+	[app setDelegate:self];
 
 	// the reply here is of some unknown type - it is not an Objective-C object
 	// as near as I can tell because trying to print it using "%@" or getting its
