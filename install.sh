@@ -2,17 +2,9 @@
 
 cd "$(dirname "$0")"
 
-# for some reason, this fails...
-#xcodebuild
+xcodebuild
 
-fr=""
-for f in ~/Library/Developer/Xcode/DerivedData/SIMBL-*/Build/Products/Development/SIMBL.osax; do
-	echo "found SIMBL: $f"
-	[ "$fr" != "" ] && echo "had already another copy, FAIL" && exit 1
-	fr="$f"
-done
-
-[ "$fr" = "" ] && echo "FAIL" && exit 1
+fr="build/Deployment/SIMBL.osax"
 
 #install_name_tool -change  ...
 
