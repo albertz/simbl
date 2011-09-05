@@ -29,7 +29,11 @@
 
 static NSMutableDictionary* loadedBundleIdentifiers = nil;
 
-OSErr InjectEventHandler(const AppleEvent *ev, AppleEvent *reply, long refcon)
+// This is the handler function which is called when the send the AppleEvent 'SIMeload'.
+// This is send from the SIMBL Agent in SIMBLAgent.m:injectSIMBL.
+// See http://developer.apple.com/library/mac/#technotes/tn1164/_index.html "Scripting Additions for Mac OS X".
+// See http://developer.apple.com/legacy/mac/library/documentation/AppleScript/Conceptual/AppleEvents/AppleEvents.pdf "Apple Event Programming Guide".
+OSErr pascal InjectEventHandler(const AppleEvent *ev, AppleEvent *reply, SInt32 refcon)
 {
 	OSErr resultCode = noErr;
 	SIMBLLogInfo(@"load SIMBL plugins");
