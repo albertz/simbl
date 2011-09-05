@@ -123,8 +123,10 @@ fail:
 	// When initializing, you need to wait for the event reply, otherwise the
 	// event might get dropped on the floor. This is only seems to happen in 10.5
 	// but it shouldn't harm anything.
-	[app setSendMode:kAEWaitReply | kAENeverInteract | kAEDontRecord];
-	id initReply = [app sendEvent:kASAppleScriptSuite id:kGetAEUT parameters:0];
+	// XXX: This fails with the error:
+	//   eventDidFail:'tvea' error:Error Domain=NSOSStatusErrorDomain Code=-1708 "The operation couldn’t be completed. (OSStatus error -1708.)" (the AppleEvent was not handled by any handler )
+	//[app setSendMode:kAEWaitReply | kAENeverInteract | kAEDontRecord];
+	//id initReply = [app sendEvent:kASAppleScriptSuite id:kGetAEUT parameters:0];
 
 	// the reply here is of some unknown type - it is not an Objective-C object
 	// as near as I can tell because trying to print it using "%@" or getting its
