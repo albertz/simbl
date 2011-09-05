@@ -5,6 +5,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <ScriptingBridge/ScriptingBridge.h>
 
 @interface NSApplication (SystemVersion)
 
@@ -15,7 +16,7 @@
 @end
 
 
-@interface SIMBLAgent : NSObject {
+@interface SIMBLAgent : NSObject <SBApplicationDelegate> {
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification*)notification;
