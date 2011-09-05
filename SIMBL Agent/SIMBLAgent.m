@@ -108,18 +108,7 @@ fail:
 
 	SIMBLLogDebug(@"send inject event");
 	
-	// Get the right event ID for this version of OS X
-	unsigned majorOSVersion = 0;
-	unsigned minorOSVersion = 0;
-	unsigned bugfixOSVersion = 0;
-	[NSApp getSystemVersionMajor:&majorOSVersion minor:&minorOSVersion bugFix:&bugfixOSVersion];
-	
-	if (majorOSVersion != 10) {
-		SIMBLLogNotice(@"something fishy - OS X version %u", majorOSVersion);
-		return;
-	}
-	
-	AEEventID eventID = minorOSVersion > 5 ? 'load' : 'leop';
+	AEEventID eventID = 'load';
 
 	// Find the process to target
 	pid_t pid = [[appInfo objectForKey:@"NSApplicationProcessIdentifier"] intValue];
