@@ -5,11 +5,9 @@
 	<key>Label</key>
 	<string>net.culater.SIMBL.Agent</string>
 	<key>Program</key>
-	<string>/System/Library/ScriptingAdditions/SIMBL.osax/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent</string>
+	<string>/System/Library/Services/SIMBL.bundle/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent</string>
 	<key>RunAtLoad</key>
 	<false/>
-	<key>LimitLoadToSessionType</key>
-	<string>Aqua</string>
 	<key>OnDemand</key>
 	<false/>
 </dict>
