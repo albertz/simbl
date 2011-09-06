@@ -9,7 +9,7 @@ This is a fork of SIMBL with a few additions / changes:
 
 * It searches for SIMBL plugins in all directories, i.e. also `/System/Library/Application Support/SIMBL/Plugins` where it hasn't searched earlier. Technically, earlier, it searched only in `NSUserDomainMask | NSLocalDomainMask | NSNetworkDomainMask` whereby now, it searches in `NSAllDomainsMask`.
 
-* It must be installed now into `/System/Library/ScriptingAdditions/`.
+* It must be installed now into `/System/Library/Services/`. Run `sudo "/System/Library/Services/SIMBL.bundle/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent" -psn` for setup.
 
 * It uses `mach_inject_bundle_pid` from [mach_star](https://github.com/rentzsch/mach_star) ([my fork of mach_star](https://github.com/albertz/mach_star)).
 
