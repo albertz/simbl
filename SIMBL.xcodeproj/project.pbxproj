@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23A925151415862E00EE4B17 /* mach_inject_bundle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A92503141584FB00EE4B17 /* mach_inject_bundle.framework */; };
+		23A9253014158CAD00EE4B17 /* mach_inject_bundle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23A92503141584FB00EE4B17 /* mach_inject_bundle.framework */; };
 		276144DA105F523C00F906F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 276144CD105F523C00F906F6 /* InfoPlist.strings */; };
 		276144DB105F523C00F906F6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276144CF105F523C00F906F6 /* MainMenu.xib */; };
 		276144F6105F531D00F906F6 /* SIMBLAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 276144D9105F523C00F906F6 /* SIMBLAgent.m */; };
@@ -41,6 +43,20 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
+		23A92502141584FB00EE4B17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = mach_inject_bundle;
+		};
+		23A925131415861C00EE4B17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = mach_inject_bundle;
+		};
 		5916EA531061E09E007D63BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
@@ -50,9 +66,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		23A9252F14158CA300EE4B17 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				23A9253014158CAD00EE4B17 /* mach_inject_bundle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		237186F7140FB925007BB7D5 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
+		23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mach_inject_bundle.xcodeproj; path = mach_star/mach_inject_bundle/mach_inject_bundle.xcodeproj; sourceTree = "<group>"; };
 		273F8C4712F3760300321488 /* SIMBLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMBLMacros.h; sourceTree = "<group>"; };
 		276144C1105F51CA00F906F6 /* SIMBL Agent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SIMBL Agent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		276144CE105F523C00F906F6 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -62,7 +92,7 @@
 		276144D8105F523C00F906F6 /* SIMBLAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMBLAgent.h; sourceTree = "<group>"; };
 		276144D9105F523C00F906F6 /* SIMBLAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMBLAgent.m; sourceTree = "<group>"; };
 		27614521105F55D500F906F6 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
-		8D5B49B6048680CD000E48DA /* SIMBL.osax */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIMBL.osax; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B6048680CD000E48DA /* SIMBL.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIMBL.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E043030209B300D6000FD3C5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E04B83EE104E73D80001E0E3 /* SIMBL.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.sdef; path = SIMBL.sdef; sourceTree = "<group>"; };
 		E0AF789209B3031900F50FE7 /* DTMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTMacros.h; path = src/DTMacros.h; sourceTree = SOURCE_ROOT; };
@@ -84,6 +114,7 @@
 			files = (
 				27614522105F55D500F906F6 /* ScriptingBridge.framework in Frameworks */,
 				276145E4105F55E800F906F6 /* Cocoa.framework in Frameworks */,
+				23A925151415862E00EE4B17 /* mach_inject_bundle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +133,7 @@
 		089C166AFE841209C02AAC07 /* SIMBL */ = {
 			isa = PBXGroup;
 			children = (
+				23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */,
 				237186F7140FB925007BB7D5 /* install.sh */,
 				276144CC105F523C00F906F6 /* SIMBL Agent */,
 				E0AF789109B3031900F50FE7 /* src */,
@@ -126,7 +158,15 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D5B49B6048680CD000E48DA /* SIMBL.osax */,
+				8D5B49B6048680CD000E48DA /* SIMBL.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23A924F8141584FB00EE4B17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23A92503141584FB00EE4B17 /* mach_inject_bundle.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,10 +228,12 @@
 				276144BD105F51CA00F906F6 /* Resources */,
 				276144BE105F51CA00F906F6 /* Sources */,
 				276144BF105F51CA00F906F6 /* Frameworks */,
+				23A9252F14158CA300EE4B17 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				23A925141415861C00EE4B17 /* PBXTargetDependency */,
 			);
 			name = "SIMBL Agent";
 			productName = "SIMBL Agent";
@@ -217,7 +259,7 @@
 			name = SIMBL;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = SIMBL;
-			productReference = 8D5B49B6048680CD000E48DA /* SIMBL.osax */;
+			productReference = 8D5B49B6048680CD000E48DA /* SIMBL.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -240,6 +282,12 @@
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* SIMBL */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 23A924F8141584FB00EE4B17 /* Products */;
+					ProjectRef = 23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D5B49AC048680CD000E48DA /* SIMBL */,
@@ -247,6 +295,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		23A92503141584FB00EE4B17 /* mach_inject_bundle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = mach_inject_bundle.framework;
+			remoteRef = 23A92502141584FB00EE4B17 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		276144BD105F51CA00F906F6 /* Resources */ = {
@@ -324,6 +382,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		23A925141415861C00EE4B17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mach_inject_bundle;
+			targetProxy = 23A925131415861C00EE4B17 /* PBXContainerItemProxy */;
+		};
 		5916EA541061E09E007D63BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 276144C0105F51CA00F906F6 /* SIMBL Agent */;
@@ -355,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "SIMBL Agent/Info.plist";
+				OTHER_LDFLAGS = "-headerpad_max_install_names";
 				PRODUCT_NAME = "SIMBL Agent";
 			};
 			name = Development;
@@ -363,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = "SIMBL Agent/Info.plist";
+				OTHER_LDFLAGS = "-headerpad_max_install_names";
 				PRODUCT_NAME = "SIMBL Agent";
 				PRODUCT_VERSION = 0.9.9;
 			};
@@ -373,7 +438,6 @@
 			buildSettings = {
 				INFOPLIST_FILE = rez/Info.plist;
 				PRODUCT_NAME = SIMBL;
-				WRAPPER_EXTENSION = osax;
 			};
 			name = Development;
 		};
@@ -383,7 +447,6 @@
 				INFOPLIST_FILE = rez/Info.plist;
 				PRODUCT_NAME = SIMBL;
 				PRODUCT_VERSION = 0.9.9;
-				WRAPPER_EXTENSION = osax;
 			};
 			name = Deployment;
 		};
