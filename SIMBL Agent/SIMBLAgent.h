@@ -5,7 +5,6 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import <ScriptingBridge/ScriptingBridge.h>
 
 @interface NSApplication (SystemVersion)
 
@@ -16,12 +15,11 @@
 @end
 
 
-@interface SIMBLAgent : NSObject <SBApplicationDelegate> {
+@interface SIMBLAgent : NSObject {
 }
 
 - (void) applicationDidFinishLaunching:(NSNotification*)notification;
 - (void) loadInLaunchd;
 - (void) injectSIMBL:(NSNotification*)notification;
-- (void) eventDidFail:(const AppleEvent*)event withError:(NSError*)error;
 
 @end

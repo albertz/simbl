@@ -6,8 +6,10 @@
 
 #import "SIMBL.h"
 #import "SIMBLAgent.h"
-#import <ScriptingBridge/ScriptingBridge.h>
-#import <Carbon/Carbon.h>
+
+#include <mach_inject_bundle/mach_inject_bundle.h>
+
+#define SIMBLE_bundle_path "/System/Library/Services/SIMBL.bundle"
 
 @implementation NSApplication (SystemVersion)
 
@@ -68,7 +70,7 @@ fail:
 
 - (void) loadInLaunchd
 {
-	NSTask* task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-F", @"-S", @"Aqua", @"/System/Library/ScriptingAdditions/SIMBL.osax/Contents/Resources/SIMBL Agent.app/Contents/Resources/net.culater.SIMBL.Agent.plist", nil]];
+	NSTask* task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-F", /*@"-S", @"Aqua",*/ @ SIMBLE_bundle_path "/Contents/Resources/SIMBL Agent.app/Contents/Resources/net.culater.SIMBL.Agent.plist", nil]];
 	[task waitUntilExit];
 	if ([task terminationStatus] != 0)
 		SIMBLLogNotice(@"launchctl returned %d", [task terminationStatus]);
@@ -106,56 +108,14 @@ fail:
 		return;
 	}
 
+	fprintf(stderr, "send inject event to %s\n", [appName UTF8String]);
 	SIMBLLogDebug(@"send inject event");
 
 	// Find the process to target
 	pid_t pid = [[appInfo objectForKey:@"NSApplicationProcessIdentifier"] intValue];
-	SBApplication* app = [SBApplication applicationWithProcessIdentifier:pid];
-	if (!app) {
-		SIMBLLogNotice(@"Can't find app with pid %d", pid);
-		return;
-	}
 
-	// Force AppleScript to initialize in the app, by getting the dictionary
-	// When initializing, you need to wait for the event reply, otherwise the
-	// event might get dropped on the floor. This is only seems to happen in 10.5
-	// but it shouldn't harm anything.
-	[app setSendMode:kAEWaitReply | kAENeverInteract | kAEDontRecord];
-	id initReply = [app sendEvent:kASAppleScriptSuite id:kGetAEUT parameters:0];
-
-	// Set the delegate at this point. Not earlier because the above might
-	// throw the error eventDidFail:'tvea' which (probably) is safe to ignore.
-	[app setDelegate:self];
-
-	// the reply here is of some unknown type - it is not an Objective-C object
-	// as near as I can tell because trying to print it using "%@" or getting its
-	// class both cause the application to segfault. The pointer value always seems
-	// to be 0x10000 which is a bit fishy. It does not seem to be an AEDesc struct
-	// either.
-	// since we are waiting for a reply, it seems like this object might need to
-	// be released - but i don't know what it is or how to release it.
-	// NSLog(@"initReply: %p '%64.64s'", initReply, (char*)initReply);
-	
-	// Inject!
-	[app setSendMode:kAENoReply | kAENeverInteract | kAEDontRecord];
-	id injectReply = [app sendEvent:'SIMe' id:'load' parameters:0];
-	if (injectReply != nil) {
-		SIMBLLogNotice(@"unexpected injectReply: %@", injectReply);
-	}
-}
-
-- (void) eventDidFail:(const AppleEvent*)event withError:(NSError*)error
-{
-	NSDictionary* userInfo = [error userInfo];
-	NSNumber* errorNumber = [userInfo objectForKey:@"ErrorNumber"];
-	
-	// this error seems more common on Leopard
-	if (errorNumber && [errorNumber intValue] == errAEEventNotHandled) {
-		SIMBLLogDebug(@"eventDidFail:'%4.4s' error:%@ userInfo:%@", (char*)&(event->descriptorType), error, [error userInfo]);
-	}
-	else {
-		SIMBLLogNotice(@"eventDidFail:'%4.4s' error:%@ userInfo:%@", (char*)&(event->descriptorType), error, [error userInfo]);
-	}
+	mach_inject_bundle_pid(SIMBLE_bundle_path, pid);
+	SIMBLLogDebug(@"sent inject event");
 }
 @end
 
