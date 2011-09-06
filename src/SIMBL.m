@@ -25,6 +25,17 @@
 	</array>
 */
 
+__attribute__((constructor))
+void initme() {
+	if([NSBundle mainBundle]) {
+		fprintf(stderr, "SIMBL in %s\n", [[[NSBundle mainBundle] executablePath] UTF8String]);
+		if(![[[NSBundle mainBundle] executablePath] hasSuffix:@"/SIMBL Agent"]) {
+			SIMBLLogInfo(@"load SIMBL plugins");
+			[SIMBL installPlugins];
+		}
+	}
+}
+
 @implementation SIMBL
 
 static NSMutableDictionary* loadedBundleIdentifiers = nil;
