@@ -25,14 +25,23 @@
 	</array>
 */
 
+@interface SIMBL_Loader : NSObject {}
++ (void)initme:(NSObject*)arg;
+@end
+@implementation SIMBL_Loader
++ (void)initme:(NSObject*)arg {
+	fprintf(stderr, "SIMBL in %s\n", [[[NSBundle mainBundle] executablePath] UTF8String]);
+	if(![[[NSBundle mainBundle] executablePath] hasSuffix:@"/SIMBL Agent"]) {
+		SIMBLLogInfo(@"load SIMBL plugins");
+		[SIMBL installPlugins];
+	}	
+}
+@end
+
 __attribute__((constructor))
 void initme() {
 	if([NSBundle mainBundle]) {
-		fprintf(stderr, "SIMBL in %s\n", [[[NSBundle mainBundle] executablePath] UTF8String]);
-		if(![[[NSBundle mainBundle] executablePath] hasSuffix:@"/SIMBL Agent"]) {
-			SIMBLLogInfo(@"load SIMBL plugins");
-			[SIMBL installPlugins];
-		}
+		[SIMBL_Loader performSelectorOnMainThread:@selector(initme:) withObject:nil waitUntilDone:NO];
 	}
 }
 
