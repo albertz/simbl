@@ -11,7 +11,9 @@ This is a fork of SIMBL with a few additions / changes:
 
 * It must be installed now into `/System/Library/ScriptingAdditions/`.
 
-The last two changes are needed to make it working again with recent Chrome versions. See [here](http://stackoverflow.com/questions/7269704/google-chrome-openscripting-framework-cant-find-entry-point-injecteventhandle/) for details.
+* It uses `mach_inject_bundle_pid` from [mach_star](https://github.com/rentzsch/mach_star) ([my fork of mach_star](https://github.com/albertz/mach_star)).
+
+The changes regarding `/System/` are needed to make it working again with recent Chrome versions. See [here](http://stackoverflow.com/questions/7269704/google-chrome-openscripting-framework-cant-find-entry-point-injecteventhandle/) for details.
 
 Blacklist an application:
 
