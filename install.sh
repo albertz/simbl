@@ -2,17 +2,28 @@
 
 cd "$(dirname "$0")"
 
-xcodebuild
+# This fails for some reason...
+#xcodebuild || exit -1
+#fr="build/Deployment/SIMBL.bundle"
 
-fr="build/Deployment/SIMBL.osax"
+fr=~"/Library/Developer/Xcode/DerivedData/SIMBL-bywjapbgwjkqudffllmvcchuzrhl/Build/Products/Development/SIMBL.bundle"
 
-#install_name_tool -change  ...
+appbin="$fr/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent"
 
-D="/System/Library/ScriptingAdditions/"
+install_name_tool -add_rpath \
+	"/System/Library/Services/SIMBL.bundle/Contents/Resources/SIMBL Agent.app/Contents" \
+	$appbin
+
+#sudo chgrp procmod $appbin
+#sudo chmod g+s $appbin
+
+D="/System/Library/Services/"
 echo "copying .."
-sudo rm -rf "$D/SIMBL.osax"
+sudo rm -rf "$D/SIMBL.bundle"
 sudo cp -a ${fr} $D
 
+sudo chown root $D/SIMBL.bundle
+
 # reinstall SIMBL Agent
-launchctl remove net.culater.SIMBL.Agent
-open "$D/SIMBL.osax/Contents/Resources/SIMBL Agent.app"
+sudo launchctl remove net.culater.SIMBL.Agent
+sudo "$D/SIMBL.bundle/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent" -psn
