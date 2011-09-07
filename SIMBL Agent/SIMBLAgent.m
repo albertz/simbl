@@ -68,7 +68,7 @@ fail:
 
 - (void) loadInLaunchd
 {
-	NSTask* task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-F", /*@"-S", @"Aqua",*/ @ SIMBLEAGENT_bundle_path "/Contents/Resources/net.culater.SIMBL.Agent.plist", nil]];
+	NSTask* task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-F", @"-S", @"Aqua", @ SIMBLEAGENT_bundle_path "/Contents/Resources/net.culater.SIMBL.Agent.plist", nil]];
 	[task waitUntilExit];
 	if ([task terminationStatus] != 0)
 		SIMBLLogNotice(@"launchctl returned %d", [task terminationStatus]);
