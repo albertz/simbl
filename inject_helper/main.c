@@ -6,6 +6,12 @@
 //  Copyright 2011 Albert Zeyer. All rights reserved.
 //
 
+/*
+ We keep this as an extra small helper binary
+ to have separate versions for each architecture
+ for this.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
