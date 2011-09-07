@@ -9,8 +9,6 @@
 
 #include <mach_inject_bundle/mach_inject_bundle.h>
 
-#define SIMBLE_bundle_path "/System/Library/Services/SIMBL.bundle"
-
 @implementation NSApplication (SystemVersion)
 
 - (void)getSystemVersionMajor:(unsigned *)major
@@ -70,7 +68,7 @@ fail:
 
 - (void) loadInLaunchd
 {
-	NSTask* task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-F", /*@"-S", @"Aqua",*/ @ SIMBLE_bundle_path "/Contents/Resources/SIMBL Agent.app/Contents/Resources/net.culater.SIMBL.Agent.plist", nil]];
+	NSTask* task = [NSTask launchedTaskWithLaunchPath:@"/bin/launchctl" arguments:[NSArray arrayWithObjects:@"load", @"-F", /*@"-S", @"Aqua",*/ @ SIMBLEAGENT_bundle_path "/Contents/Resources/net.culater.SIMBL.Agent.plist", nil]];
 	[task waitUntilExit];
 	if ([task terminationStatus] != 0)
 		SIMBLLogNotice(@"launchctl returned %d", [task terminationStatus]);
@@ -114,8 +112,25 @@ fail:
 	// Find the process to target
 	pid_t pid = [[appInfo objectForKey:@"NSApplicationProcessIdentifier"] intValue];
 
-	mach_inject_bundle_pid(SIMBLE_bundle_path, pid);
-	SIMBLLogDebug(@"sent inject event");
+	NSInteger progarch = [(NSRunningApplication*)[appInfo objectForKey:@"NSWorkspaceApplicationKey"] executableArchitecture];
+	NSMutableString* cmd = [NSMutableString stringWithUTF8String:"\"" SIMBLEAGENT_bundle_path "/Contents/MacOS/inject_helper"];
+	switch(progarch) {
+		case NSBundleExecutableArchitectureI386:
+			[cmd appendString:@"_32"];
+			break;
+		case NSBundleExecutableArchitectureX86_64:
+			[cmd appendString:@"_64"];
+			break;
+		case NSBundleExecutableArchitecturePPC:
+		case NSBundleExecutableArchitecturePPC64:
+			SIMBLLogNotice(@"PPC/PPC64 not supported of %@ (%@)", appName, appIdentifier);
+			return;			
+		default:
+			SIMBLLogNotice(@"unknown architecture of %@ (%@)", appName, appIdentifier);
+			return;
+	}
+	[cmd appendFormat:@"\" %i", pid];
+	system([cmd UTF8String]);
 }
 @end
 

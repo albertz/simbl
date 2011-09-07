@@ -4,6 +4,11 @@
  * http://www.opensource.org/licenses/gpl-2.0.php
  */
 
+#define SIMBLE_bundle_path "/System/Library/Services/SIMBL.bundle"
+#define SIMBLEAGENT_bundle_path	SIMBLE_bundle_path "/Contents/Resources/SIMBL Agent.app"
+
+#ifdef __OBJC__
+
 #import <Foundation/Foundation.h>
 #import "SIMBLPlugin.h"
 
@@ -47,3 +52,5 @@
 + (BOOL) loadBundle:(SIMBLPlugin*)_bundle;
 
 @end
+
+#endif // __OBJC__
