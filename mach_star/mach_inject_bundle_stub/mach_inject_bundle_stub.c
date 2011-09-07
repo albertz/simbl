@@ -57,8 +57,6 @@ INJECT_ENTRY(
 		size_t							paramSize,
 		char							*dummy_pthread_struct )
 {
-	//fprintf(stderr, "mach_inject_bundle: entered in %s, codeOffset: %td, param: %p, paramSize: %lu\n",
-	//		INJECT_ENTRY_SYMBOL, codeOffset, param, paramSize);
 	assert( param );
 	
 	param->codeOffset = codeOffset;
@@ -70,7 +68,10 @@ INJECT_ENTRY(
 	extern void __pthread_set_self(char*);
 	__pthread_set_self(dummy_pthread_struct);
 #endif
-	
+
+	fprintf(stderr, "mach_inject_bundle: entered in %s, codeOffset: %td, param: %p, paramSize: %lu\n",
+			INJECT_ENTRY_SYMBOL, codeOffset, param, paramSize);
+
 	pthread_attr_t attr;
 	pthread_attr_init(&attr); 
 	

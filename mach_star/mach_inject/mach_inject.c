@@ -66,6 +66,7 @@ mach_inject(
 	unsigned int	jumpTableOffset;
 	unsigned int	jumpTableSize;
 	mach_error_t	err = machImageForPointer( threadEntry, &image, &imageSize, &jumpTableOffset, &jumpTableSize );
+	//fprintf(stderr, "mach_inject: found threadEntry image at: %p with size: %lu\n", image, imageSize);
 	
 	//	Initialize stackSize to default if requested.
 	if( stackSize == 0 )
@@ -137,8 +138,10 @@ mach_inject(
 #if defined(__x86_64__)
 		imageOffset = 0; // RIP-relative addressing
 #else
-		ASSERT_CAST( void*, remoteCode );
-		imageOffset = ((void*) remoteCode) - image;
+		//ASSERT_CAST( void*, remoteCode );
+		//imageOffset = ((void*) remoteCode) - image;
+		// WARNING: See bug https://github.com/rentzsch/mach_star/issues/11 . Not sure about this.
+		imageOffset = 0;
 #endif
 	}
 	
