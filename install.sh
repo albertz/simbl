@@ -8,14 +8,13 @@ cd "$(dirname "$0")"
 
 fr=~"/Library/Developer/Xcode/DerivedData/SIMBL-bywjapbgwjkqudffllmvcchuzrhl/Build/Products/Development/SIMBL.bundle"
 
-appbin="$fr/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent"
+execpath="$fr/Contents/Resources/SIMBL Agent.app/Contents/MacOS/"
 
+for execname in "SIMBL Agent" "inject_helper_32" "inject_helper_64"; do
 install_name_tool -add_rpath \
 	"/System/Library/Services/SIMBL.bundle/Contents/Resources/SIMBL Agent.app/Contents" \
-	$appbin
-
-#sudo chgrp procmod $appbin
-#sudo chmod g+s $appbin
+	"$execpath/$execname"
+done
 
 D="/System/Library/Services/"
 echo "copying .."
