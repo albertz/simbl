@@ -57,6 +57,8 @@ INJECT_ENTRY(
 		size_t							paramSize,
 		char							*dummy_pthread_struct )
 {
+	//fprintf(stderr, "mach_inject_bundle: entered in %s, codeOffset: %td, param: %p, paramSize: %lu\n",
+	//		INJECT_ENTRY_SYMBOL, codeOffset, param, paramSize);
 	assert( param );
 	
 	param->codeOffset = codeOffset;
@@ -95,6 +97,7 @@ INJECT_ENTRY(
 pthread_entry(
 		mach_inject_bundle_stub_param	*param )
 {
+	fprintf(stderr, "mach_inject_bundle: entered in pthread_entry, param: %p\n", param);
 	assert( param );
 	
 	EventLoopTimerProcPtr proc = (EventLoopTimerProcPtr) EventLoopTimerEntry;
@@ -111,6 +114,7 @@ EventLoopTimerEntry(
 		EventLoopTimerRef				inTimer,
 		mach_inject_bundle_stub_param	*param )
 {
+	fprintf(stderr, "mach_inject_bundle: entered in EventLoopTimerEntry, inTimer: %p, param: %p\n", inTimer, param);
 	assert( inTimer );
 	assert( param );
 	load_bundle_package( param->bundlePackageFileSystemRepresentation );
