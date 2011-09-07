@@ -22,7 +22,8 @@ sudo rm -rf "$D/SIMBL.bundle"
 sudo cp -a ${fr} $D
 
 sudo chown root $execpath/inject_helper_*
-sudo chmod u+s $execpath/inject_helper_*
+sudo chgrp procmod $execpath/inject_helper_*
+sudo chmod ug+s $execpath/inject_helper_*
 #sudo chown root $D/SIMBL.bundle
 
 # reinstall SIMBL Agent
