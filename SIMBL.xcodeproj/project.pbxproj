@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		237CC2571417BD7400D34A6B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 237CC2561417BD7400D34A6B /* main.c */; };
+		237CC25F1417BDB900D34A6B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 237CC2561417BD7400D34A6B /* main.c */; };
+		237CC2671417BDD700D34A6B /* mach_inject_bundle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A92503141584FB00EE4B17 /* mach_inject_bundle.framework */; };
+		237CC2681417BDDB00D34A6B /* mach_inject_bundle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A92503141584FB00EE4B17 /* mach_inject_bundle.framework */; };
+		237CC2721417BE5400D34A6B /* inject_helper_32 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 237CC2531417BD7400D34A6B /* inject_helper_32 */; };
+		237CC2731417BE5400D34A6B /* inject_helper_64 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 237CC2651417BDB900D34A6B /* inject_helper_64 */; };
 		23A925151415862E00EE4B17 /* mach_inject_bundle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23A92503141584FB00EE4B17 /* mach_inject_bundle.framework */; };
 		23A9253014158CAD00EE4B17 /* mach_inject_bundle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23A92503141584FB00EE4B17 /* mach_inject_bundle.framework */; };
 		276144DA105F523C00F906F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 276144CD105F523C00F906F6 /* InfoPlist.strings */; };
@@ -43,6 +49,34 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
+		237CC2691417BDEC00D34A6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = mach_inject_bundle;
+		};
+		237CC26B1417BDF100D34A6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = mach_inject_bundle;
+		};
+		237CC26D1417BE0F00D34A6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 237CC2521417BD7400D34A6B;
+			remoteInfo = inject_helper_32;
+		};
+		237CC26F1417BE0F00D34A6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 237CC25D1417BDB900D34A6B;
+			remoteInfo = inject_helper_64;
+		};
 		23A92502141584FB00EE4B17 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */;
@@ -67,6 +101,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		237CC2711417BE1800D34A6B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				237CC2721417BE5400D34A6B /* inject_helper_32 in CopyFiles */,
+				237CC2731417BE5400D34A6B /* inject_helper_64 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		23A9252F14158CA300EE4B17 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,6 +127,9 @@
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		237186F7140FB925007BB7D5 /* install.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install.sh; sourceTree = "<group>"; };
+		237CC2531417BD7400D34A6B /* inject_helper_32 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inject_helper_32; sourceTree = BUILT_PRODUCTS_DIR; };
+		237CC2561417BD7400D34A6B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		237CC2651417BDB900D34A6B /* inject_helper_64 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = inject_helper_64; sourceTree = BUILT_PRODUCTS_DIR; };
 		23A924F7141584FB00EE4B17 /* mach_inject_bundle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mach_inject_bundle.xcodeproj; path = mach_star/mach_inject_bundle/mach_inject_bundle.xcodeproj; sourceTree = "<group>"; };
 		273F8C4712F3760300321488 /* SIMBLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMBLMacros.h; sourceTree = "<group>"; };
 		276144C1105F51CA00F906F6 /* SIMBL Agent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SIMBL Agent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +156,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		237CC2501417BD7400D34A6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				237CC2671417BDD700D34A6B /* mach_inject_bundle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237CC2601417BDB900D34A6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				237CC2681417BDDB00D34A6B /* mach_inject_bundle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		276144BF105F51CA00F906F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +203,7 @@
 				E0AF789109B3031900F50FE7 /* src */,
 				E04302FE09B300D6000FD3C5 /* rez */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				237CC2551417BD7400D34A6B /* inject_helper */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
 			name = SIMBL;
@@ -159,8 +224,18 @@
 			isa = PBXGroup;
 			children = (
 				8D5B49B6048680CD000E48DA /* SIMBL.bundle */,
+				237CC2531417BD7400D34A6B /* inject_helper_32 */,
+				237CC2651417BDB900D34A6B /* inject_helper_64 */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		237CC2551417BD7400D34A6B /* inject_helper */ = {
+			isa = PBXGroup;
+			children = (
+				237CC2561417BD7400D34A6B /* main.c */,
+			);
+			path = inject_helper;
 			sourceTree = "<group>";
 		};
 		23A924F8141584FB00EE4B17 /* Products */ = {
@@ -221,6 +296,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		237CC2521417BD7400D34A6B /* inject_helper_32 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 237CC25A1417BD7400D34A6B /* Build configuration list for PBXNativeTarget "inject_helper_32" */;
+			buildPhases = (
+				237CC24F1417BD7400D34A6B /* Sources */,
+				237CC2501417BD7400D34A6B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				237CC26C1417BDF100D34A6B /* PBXTargetDependency */,
+			);
+			name = inject_helper_32;
+			productName = inject_helper;
+			productReference = 237CC2531417BD7400D34A6B /* inject_helper_32 */;
+			productType = "com.apple.product-type.tool";
+		};
+		237CC25D1417BDB900D34A6B /* inject_helper_64 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 237CC2621417BDB900D34A6B /* Build configuration list for PBXNativeTarget "inject_helper_64" */;
+			buildPhases = (
+				237CC25E1417BDB900D34A6B /* Sources */,
+				237CC2601417BDB900D34A6B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				237CC26A1417BDEC00D34A6B /* PBXTargetDependency */,
+			);
+			name = inject_helper_64;
+			productName = inject_helper;
+			productReference = 237CC2651417BDB900D34A6B /* inject_helper_64 */;
+			productType = "com.apple.product-type.tool";
+		};
 		276144C0105F51CA00F906F6 /* SIMBL Agent */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 276144C7105F51CB00F906F6 /* Build configuration list for PBXNativeTarget "SIMBL Agent" */;
@@ -229,10 +338,13 @@
 				276144BE105F51CA00F906F6 /* Sources */,
 				276144BF105F51CA00F906F6 /* Frameworks */,
 				23A9252F14158CA300EE4B17 /* CopyFiles */,
+				237CC2711417BE1800D34A6B /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				237CC26E1417BE0F00D34A6B /* PBXTargetDependency */,
+				237CC2701417BE0F00D34A6B /* PBXTargetDependency */,
 				23A925141415861C00EE4B17 /* PBXTargetDependency */,
 			);
 			name = "SIMBL Agent";
@@ -292,6 +404,8 @@
 			targets = (
 				8D5B49AC048680CD000E48DA /* SIMBL */,
 				276144C0105F51CA00F906F6 /* SIMBL Agent */,
+				237CC2521417BD7400D34A6B /* inject_helper_32 */,
+				237CC25D1417BDB900D34A6B /* inject_helper_64 */,
 			);
 		};
 /* End PBXProject section */
@@ -358,6 +472,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		237CC24F1417BD7400D34A6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				237CC2571417BD7400D34A6B /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		237CC25E1417BDB900D34A6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				237CC25F1417BDB900D34A6B /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		276144BE105F51CA00F906F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,6 +512,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		237CC26A1417BDEC00D34A6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mach_inject_bundle;
+			targetProxy = 237CC2691417BDEC00D34A6B /* PBXContainerItemProxy */;
+		};
+		237CC26C1417BDF100D34A6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = mach_inject_bundle;
+			targetProxy = 237CC26B1417BDF100D34A6B /* PBXContainerItemProxy */;
+		};
+		237CC26E1417BE0F00D34A6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 237CC2521417BD7400D34A6B /* inject_helper_32 */;
+			targetProxy = 237CC26D1417BE0F00D34A6B /* PBXContainerItemProxy */;
+		};
+		237CC2701417BE0F00D34A6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 237CC25D1417BDB900D34A6B /* inject_helper_64 */;
+			targetProxy = 237CC26F1417BE0F00D34A6B /* PBXContainerItemProxy */;
+		};
 		23A925141415861C00EE4B17 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = mach_inject_bundle;
@@ -414,6 +564,98 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		237CC25B1417BD7400D34A6B /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Development;
+		};
+		237CC25C1417BD7400D34A6B /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Deployment;
+		};
+		237CC2631417BDB900D34A6B /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = inject_helper_64;
+				SDKROOT = macosx;
+			};
+			name = Development;
+		};
+		237CC2641417BDB900D34A6B /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = inject_helper_64;
+				SDKROOT = macosx;
+			};
+			name = Deployment;
+		};
 		276144C4105F51CB00F906F6 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -482,6 +724,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		237CC25A1417BD7400D34A6B /* Build configuration list for PBXNativeTarget "inject_helper_32" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				237CC25B1417BD7400D34A6B /* Development */,
+				237CC25C1417BD7400D34A6B /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		237CC2621417BDB900D34A6B /* Build configuration list for PBXNativeTarget "inject_helper_64" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				237CC2631417BDB900D34A6B /* Development */,
+				237CC2641417BDB900D34A6B /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		276144C7105F51CB00F906F6 /* Build configuration list for PBXNativeTarget "SIMBL Agent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
