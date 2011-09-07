@@ -21,8 +21,10 @@ echo "copying .."
 sudo rm -rf "$D/SIMBL.bundle"
 sudo cp -a ${fr} $D
 
-sudo chown root $D/SIMBL.bundle
+sudo chown root $execpath/inject_helper_*
+sudo chmod u+s $execpath/inject_helper_*
+#sudo chown root $D/SIMBL.bundle
 
 # reinstall SIMBL Agent
-sudo launchctl remove net.culater.SIMBL.Agent
-sudo "$D/SIMBL.bundle/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent" -psn
+launchctl remove net.culater.SIMBL.Agent
+"$D/SIMBL.bundle/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent" -psn
