@@ -731,6 +731,7 @@
 				237CC25C1417BD7400D34A6B /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Deployment;
 		};
 		237CC2621417BDB900D34A6B /* Build configuration list for PBXNativeTarget "inject_helper_64" */ = {
 			isa = XCConfigurationList;
@@ -739,6 +740,7 @@
 				237CC2641417BDB900D34A6B /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Deployment;
 		};
 		276144C7105F51CB00F906F6 /* Build configuration list for PBXNativeTarget "SIMBL Agent" */ = {
 			isa = XCConfigurationList;
