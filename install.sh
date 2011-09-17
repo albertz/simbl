@@ -16,15 +16,15 @@ install_name_tool -add_rpath \
 	"$execpath/$execname"
 done
 
+echo "fixing permissions. setting SUID, etc. .."
+sudo chown root $execpath/inject_helper_*
+sudo chgrp procmod $execpath/inject_helper_*
+sudo chmod ug+s $execpath/inject_helper_*
+
 D="/System/Library/Services/"
 echo "copying .."
 sudo rm -rf "$D/SIMBL.bundle"
 sudo cp -a ${fr} $D
-
-sudo chown root $execpath/inject_helper_*
-sudo chgrp procmod $execpath/inject_helper_*
-sudo chmod ug+s $execpath/inject_helper_*
-#sudo chown root $D/SIMBL.bundle
 
 # reinstall SIMBL Agent
 launchctl remove net.culater.SIMBL.Agent
