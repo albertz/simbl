@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 #import "SIMBLPlugin.h"
 
-#define SIMBLPluginPath @"Application Support/SIMBL/Plugins"
+#define SIMBLPluginPath @"Application Support/SIMBL/MyPlugins"
 #define SIMBLStringTable @"SIMBLStringTable"
 #define SIMBLApplicationIdentifier @"SIMBLApplicationIdentifier"
 #define SIMBLTargetApplications @"SIMBLTargetApplications"
