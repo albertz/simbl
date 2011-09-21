@@ -3,11 +3,13 @@ SIMBL - SIMBL is the SIMple Bundle Loader
 
 Official homepage: <http://code.google.com/p/simbl/>
 
-This is a fork of SIMBL with a few additions / changes:
+This is another fork of SIMBL with a few additions / changes:
 
 * It fixes the "Please update this scripting addition to supply a value for ThreadSafe for each event handler" warning which occurs in console ([bug report](http://code.google.com/p/simbl/issues/detail?id=7)). This makes it incompatible with 10.5 and older (that is why upstream didn't want to patch it).
 
-* It searches for SIMBL plugins in all directories, i.e. also `/System/Library/Application Support/SIMBL/Plugins` where it hasn't searched earlier. Technically, earlier, it searched only in `NSUserDomainMask | NSLocalDomainMask | NSNetworkDomainMask` whereby now, it searches in `NSAllDomainsMask`.
+* It searches for SIMBL plugins in all directories, i.e. also `/System/...` where it hasn't searched earlier. Technically, earlier, it searched only in `NSUserDomainMask | NSLocalDomainMask | NSNetworkDomainMask` whereby now, it searches in `NSAllDomainsMask`.
+
+* It looks for plugins in MyPlugins instead of Plugins, to work around Chrome 14's blacklist. So your plugins should be installed in `/System/Library/Application\ Support/SIMBL/MyPlugins`.
 
 * It must be installed now into `/System/Library/Services/`. Run `sudo "/System/Library/Services/SIMBL.bundle/Contents/Resources/SIMBL Agent.app/Contents/MacOS/SIMBL Agent" -psn` for setup.
 
