@@ -2,11 +2,9 @@
 
 cd "$(dirname "$0")"
 
-# This fails for some reason...
-#xcodebuild || exit -1
-#fr="build/Deployment/SIMBL.bundle"
+xcodebuild -workspace SIMBL.xcodeproj/project.xcworkspace -scheme SIMBL SYMROOT=$(pwd)/build || exit -1
 
-fr=~"/Library/Developer/Xcode/DerivedData/SIMBL-bywjapbgwjkqudffllmvcchuzrhl/Build/Products/Development/SIMBL.bundle"
+fr="build/Development/SIMBL.bundle"
 
 execpath="$fr/Contents/Resources/SIMBL Agent.app/Contents/MacOS/"
 
