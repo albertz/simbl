@@ -6,22 +6,22 @@
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleGetInfoString</key>
+	<string>${EXECUTABLE_NAME} ${PRODUCT_VERSION}, ©2003-2009 Mike Solomon</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.culater.${PRODUCT_NAME:identifier}.osax</string>
+	<string>net.culater.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>osax</string>
+	<key>CFBundleShortVersionString</key>
+	<string>${PRODUCT_VERSION}</string>
 	<key>CFBundleSignature</key>
 	<string>SIM∞</string>
 	<key>CFBundleVersion</key>
 	<string>${PRODUCT_VERSION}</string>
-	<key>CFBundleShortVersionString</key>
-	<string>${PRODUCT_VERSION}</string>
-	<key>CFBundleGetInfoString</key>
-	<string>${EXECUTABLE_NAME} ${PRODUCT_VERSION}, ©2003-2009 Mike Solomon</string>
 	<key>OSAScriptingDefinition</key>
 	<string>${PRODUCT_NAME}.sdef</string>
 	<key>OSAXHandlers</key>
@@ -30,12 +30,12 @@
 		<dict>
 			<key>SIMeload</key>
 			<dict>
+				<key>Context</key>
+				<string>Process</string>
 				<key>Handler</key>
 				<string>InjectEventHandler</string>
 				<key>ThreadSafe</key>
 				<false/>
-				<key>Context</key>
-				<string>Process</string>
 			</dict>
 		</dict>
 	</dict>
